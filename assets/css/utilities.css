@@ -1,13 +1,11 @@
-/* CSS COLORS */
 :root {
   --text: #144b86;
-  --primary: #ABD9FF;
-  --primary-dark: #558bb7;
-  --primary-light: #C3F8FF;
-  --secondary: #FFEBAD;
-  --secondary-light: #FFF6BF;
+  --primary: #ffabf1;
+  --primary-dark: #f11cce;
+  --primary-light: #ffabf1;
+  --secondary: #ffebad;
+  --secondary-light: #fff6bf;
 }
-/* END CSS COLORS */
 
 .title {
   color: var(--text);

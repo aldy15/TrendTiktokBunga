@@ -9,18 +9,64 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="shortcut icon" href="./assets/img/heart1.png" />
+    <link rel="shortcut icon" href="./assets/img/heart2.png" />
     <!-- Font Awesome -->
-    <link
   </head>
+
   <body>
-    <div class="home">
-      <h1 class="title title-lg">Select Flowers:</h1>
+    <div class="bg">
+      <div id="particles-js"></div>
+      <div class="container">
+        <div class="text-container">
+          <h1
+            id="clock"
+            style="font-weight: 900; margin-left: 45px; font-size: 25px"
+          ></h1>
+          <h1 id="quote"></h1>
+          <div class="home">
+            <img src="./assets/img/b.png" style="width: 350px" />
+            <ul>
+              <li>
+                <a href="./pages/draw_flowers.html" style="margin-left: 60px"
+                  >CLICK</a
+                >
+              </li>
+            </ul>
+          </div>
+          <h4 id="quotes"></h4>
+          <em id="quotes-author" style="text-align: center"></em>
+        </div>
+      </div>
+
       <ul>
         <li>
-          <a href="./pages/draw_flowers.html">Draw Flowers</a>
+          <a href="./pages/draw_flowers.html">CLICK</a>
         </li>
       </ul>
+    </div>
+    <div class="container">
+      <script type="text/javascript" src="assets/js/clock.js"></script>
+      <script>
+        const greetText = variables.greetings[getTime()];
+        const nickText = random(variables.nicknames);
+        const tmpQuotes = random(Object.keys(variables.quotes));
+        const { quote, author } = variables.quotes[tmpQuotes];
+        let textToWrite = [];
+        // prettier-ignore
+        variables.generated.map(function (text) {
+        textToWrite.push(text.replace("{greetings}", greetText).replace("{nicknames}", nickText));
+      });
+
+        $(document).ready(function () {
+          $("#bg").addClass(getMode(getTime()));
+          generateTypeIt("#greeting", 100, true, textToWrite);
+          generateTypeIt("#quotes", 120, false, quote);
+          $("#quotes-author").html(`~ ${author}`);
+          particlesJS("particles-js", particlesConfig, function () {
+            console.log("callback - particles.js config loaded");
+          });
+        });
+      </script>
     </div>
   </body>
 </html>
